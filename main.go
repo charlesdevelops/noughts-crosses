@@ -116,7 +116,6 @@ func main() {
 				current_player = 1
 			}
 		}
-
 	}
 
 	// display winner and board
