@@ -150,8 +150,6 @@ int game_loop(int board[3][3], bool playerOnesTurn)
         playerOnesTurn = !playerOnesTurn;        // flip the next players move
         return game_loop(board, playerOnesTurn); // recursion, this is where the loop is also :)
     }
-
-    return 1;
 }
 
 int main()
