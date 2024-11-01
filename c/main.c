@@ -160,7 +160,6 @@ int main()
     printf("sending board at %p pointer to the board initialiser\n", board);
 
     init_board(board);
-    print_board(board);
 
     int winner = game_loop(board, playerOnesTurn);
 
