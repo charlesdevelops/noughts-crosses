@@ -113,7 +113,7 @@ fn game_loop(board: &mut [[i32; 3]; 3], player_ones_move: &mut bool){
             process::exit(0);
         }
 
-        // if no winner and no deadlock, then continue the game loop
+        // If no winner and no deadlock, then continue the game loop
         if *player_ones_move {
             *player_ones_move = false;
         } else {
