@@ -1,3 +1,6 @@
+use std::io::{self, Write};
+
+// 9 represents unused point, 1 and 2 will represent p1 and p2
 fn init_board() -> [[i32; 3]; 3]{
     [[9,9,9],[9,9,9],[9,9,9]]
 }
@@ -10,7 +13,11 @@ fn print_board(board: [[i32; 3]; 3]){
     for i in 0..3 {
         print!("{}|\t", i + 1);
         for j in board[i]{
-            print!("{}\t", j);
+            match j{
+                1=>print!("X\t"),
+                2=>print!("O\t"),
+                _=>print!("-\t")
+            }
         }
         println!();
     }
@@ -18,6 +25,24 @@ fn print_board(board: [[i32; 3]; 3]){
 
 fn game_loop(board: [[i32; 3]; 3], player_ones_move: bool){
     print_board(board);
+
+    println!("Enter your move as XY: ");
+
+    let mut input = String::new();
+    io::stdin()
+        .read_line(&mut input)
+        .expect("Failed to read line");
+
+    // Attempt to parse the input as an integer
+    let number: i32 = match input.trim().parse() {
+        Ok(num) => num,
+        Err(_) => {
+            println!("Please enter a valid integer.");
+            return;
+        }
+    };
+
+    println!("{}", number);
 }
 
 fn main() {
