@@ -73,6 +73,8 @@ fn is_winner(board: &mut [[i32; 3]; 3]) -> bool {
     if board[1][1] != 9 {
         if board[0][0] == board[1][1] && board[1][1] == board[2][2]{
             return true;
+        } else if board[2][0] == board[1][1] && board[1][1] == board[0][2] {
+            return true;
         }
     }
 
