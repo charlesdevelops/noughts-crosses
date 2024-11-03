@@ -99,7 +99,7 @@ fn game_loop(board: &mut [[i32; 3]; 3], player_ones_move: &mut bool){
     );
 
     let coords: [i32; 2] = get_move();
-    // println!("{:?}", coords);
+
     if handle_move(board, coords, player_ones_move) {
         if is_winner(board) {
             println!("\nCONGRATULATIONS!! Player {} wins!\n", if *player_ones_move { 1 } else { 2 });
@@ -112,6 +112,8 @@ fn game_loop(board: &mut [[i32; 3]; 3], player_ones_move: &mut bool){
             print_board(board);
             process::exit(0);
         }
+
+        // if no winner and no deadlock, then continue the game loop
         if *player_ones_move {
             *player_ones_move = false;
         } else {
